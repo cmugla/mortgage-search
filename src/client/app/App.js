@@ -1,9 +1,11 @@
 import '../css/base.css'
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import Select from 'react-select'
+import { orderBy } from 'lodash'
 
 import sortOptions from '../data/sortOptions.js'
+
+import SelectOption from './SelectOption.js'
 
 import AjaxAdapter from '../helpers/ajaxAdapter.js'
 
@@ -13,6 +15,7 @@ export default class App extends Component {
   state={
     loanAmount: '',
     results: null,
+    sortValue: '',
   }
 
   handleSubmit = e => {
@@ -31,11 +34,23 @@ export default class App extends Component {
     })
   }
 
+  sortResults = e => {
+    const val = e.target.value
+    let sortedResults = orderBy(this.state.results, [val], ['asc'])
+
+    this.setState({
+      sortValue: val,
+      results: sortedResults
+    })
+  }
+
   render () {
     console.log("you're excellent");
     console.log("\n.-        -.\n| ,-. ,-.  |\n| |   | |  |\n| `-' `-|  |\n`-     ,| -'\n       `'    ")
 
-    const { loanAmount, results } = this.state
+    const { loanAmount, results, sortValue } = this.state
+
+    console.log('results', results)
 
     return (
       <div>
@@ -44,11 +59,21 @@ export default class App extends Component {
           <input placeholder="Enter loan amount" value={loanAmount} onChange={this.updateLoanAmt} />
           <button type="submit">SEARCH</button>
         </form>
-        <Select
-          name="Sort By"
-          options={sortOptions}
-          onChange={this.setSortValue}
-        />
+        {
+          sortOptions
+          &&
+          <select onChange={this.sortResults} value={sortValue}>
+            {
+              sortOptions.map((each, i) => (
+                <SelectOption
+                  key={`sort-option-${i}`}
+                  option={each}
+                  onClick={this.sortResults}
+                />
+              ))
+            }
+          </select>
+        }
         <ul>
           {
             results
@@ -56,7 +81,11 @@ export default class App extends Component {
             results.length > 0
             &&
             results.map((each, i) => (
-              <li key={`results-${i}`}>{each.lender.name}</li>
+              <li key={`results-${i}`}>
+                {each.lender.name}<br/>
+                {each.interest_rate}<br/>
+                {each.monthly_payment}
+              </li>
             ))
           }
           {
