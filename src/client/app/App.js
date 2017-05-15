@@ -1,6 +1,9 @@
 import '../css/base.css'
 import React, { Component } from 'react'
 import { render } from 'react-dom'
+import Select from 'react-select'
+
+import sortOptions from '../data/sortOptions.js'
 
 import AjaxAdapter from '../helpers/ajaxAdapter.js'
 
@@ -41,6 +44,11 @@ export default class App extends Component {
           <input placeholder="Enter loan amount" value={loanAmount} onChange={this.updateLoanAmt} />
           <button type="submit">SEARCH</button>
         </form>
+        <Select
+          name="Sort By"
+          options={sortOptions}
+          onChange={this.setSortValue}
+        />
         <ul>
           {
             results
