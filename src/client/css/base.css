@@ -1,24 +1,96 @@
-.sort-dropdown {
-  width: 100px;
-  height: 30px;
+body {
+  background: #f7f2eb;
+  color: #473366;
+  /*font-family: Arial,Verdana,Tahoma;*/
+  font-family: gilroy,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
 }
 
-.Select-control {
+input {
+  width: 20%;
+  max-width: 220px;
+  height: 2rem;
+  background-color: #f7f2eb;
+  border: 0;
+  border-bottom: #473366 1px solid;
+}
+.loan-amt-input {
+  margin-right: 2rem;
+}
+
+button {
+  font-family: gilroy,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  height: 36px;
+  line-height: 36px;
+  border: 0;
+  padding: 0 5em;
+  font-size: 14px;
+  color: #fff;
+  background-color: #4b88e6;
+}
+
+li {
+  list-style-type: none;
+  padding: 1rem 0;
+  overflow: auto;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 65%;
+  background: #f7f2eb;
+}
+
+.hero {
+  height: 100vh;
+}
+.hero header {
   width: 100%;
-  height: 100%;
-
-  cursor: pointer;
-
-  border: none;
-  border-radius: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.Select-menu-outer {
-  border: none;
+.results-container {
+  width: 65%;
+  float: right;
+  text-align: left;
+  margin-top: 9rem;
+}
+.results-container h4 {
+  margin-bottom: 0;
+}
+.each-result {
+  border-bottom: solid 1px;
 }
 
-.Select-option {
+.results-info {
+  width: 30%;
+  float: right;
+}
+.results-info p {
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
 }
 
-.Select-option.is-focused {
+.sort-filter-container {
+  width: 25%;
+  height: 100vh;
+  padding: 2rem;
+  position: fixed;
+  left: 0;
+  text-align: left;
+  background: #473366;
+  color: #f7f2eb;
+}
+
+.each-filter {
+  width: 100%;
 }
