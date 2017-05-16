@@ -17,16 +17,16 @@ Then run the npm install:
 npm install
 ```
 
-To run the server, use command:
-
-```
-nodemon
-```
-
-To build the distribution files, use command:
+Build the distribution files, use command:
 
 ```
 npm run build
+```
+
+Run the server, use command:
+
+```
+nodemon
 ```
 
 Then, go to [http://localhost:3000/](http://localhost:3000/) to view the page.
