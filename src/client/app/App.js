@@ -152,6 +152,7 @@ export default class App extends Component {
                   <p>interest rate: {(each.interest_rate * 100).toFixed(2)}%</p>
                   <p>rate type: {each.rate_type}</p>
                   <p>${each.monthly_payment}/month</p>
+                  <p>Loan Term: {each.loan_term} years</p>
                 </div>
               </li>
             ))
