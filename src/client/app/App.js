@@ -1,7 +1,7 @@
 import '../css/base.css'
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import { orderBy, get } from 'lodash'
+import { orderBy } from 'lodash'
 
 import SortFilter from './SortFilter.js'
 
@@ -114,7 +114,7 @@ export default class App extends Component {
     this.setState({
       results: filteredResults
     })
-    
+
     window.scrollTo( 0, 0 );
   }
 

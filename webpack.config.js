@@ -3,16 +3,12 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-require('whatwg-fetch');
 
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/client');
 
 var config = {
-  entry: [
-    'whatwg-fetch',
-    APP_DIR + '/app/main.js'
-  ],
+  entry: APP_DIR + '/app/main.js',
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
@@ -22,7 +18,11 @@ var config = {
       {
         test: /\.js?/,
         include: APP_DIR,
-        loader: 'babel-loader',
+        exclude: [/node_modules/],
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ["es2015", "react", "stage-0"] },
+        }]
       },
       {
         test: /\.css$/,
