@@ -4,7 +4,17 @@ The frontend component of a simple mortgage quote tool. The general objective is
 
 ### Install Instructions
 
-After cloning this repo to your local machine, from your command line, you'll run the server as well as run the webpack build.
+First clone the repo to your local machine, with command:
+
+```
+git clone git@github.com:cmugla/mortgage-search.git
+```
+
+Then run the npm install, just incase any modules are missing:
+
+```
+npm install
+```
 
 To run the server, use command:
 
