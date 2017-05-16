@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import sortOptions from '../data/sortOptions.js'
 import filterOptions from '../data/filterOptions.js'
 
-import SelectOption from './SelectOption.js'
 import FilterItem from './FilterItem.js'
 
 export default class SortFilter extends Component {
@@ -20,10 +19,12 @@ export default class SortFilter extends Component {
             <select onChange={sortResults} value={sortValue}>
               {
                 sortOptions.map((each, i) => (
-                  <SelectOption
+                  <option
                     key={`sort-option-${i}`}
-                    option={each}
-                  />
+                    value={each.value}
+                  >
+                    {each.label}
+                  </option>
                 ))
               }
             </select>
