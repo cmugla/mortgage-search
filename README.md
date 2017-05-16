@@ -34,3 +34,7 @@ Then, go to [http://localhost:3000/](http://localhost:3000/) to view the page.
 ### Troubleshooting
 
 Given the tight timeframe, this app was not built mobile-first nor was it tested on multiple browsers or devices. The recommended browser is Chrome, device is desktop or laptop computer.
+
+### Shout Outs
+
+The API and assignment was provided by [morty](https://www.himorty.com/)
